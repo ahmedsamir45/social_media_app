@@ -1,0 +1,42 @@
+.landing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 1rem;
+}
+.landingImg img{
+    width: 20rem;
+    border-radius: 20px;
+    box-Shadow: var(--main-shadow);
+}
+
+.landing p{
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-Shadow: var(--main-shadow);
+}
+.btn.login{
+    background-color: rgb(0, 255, 0);
+    color: white;
+}
+.btn.register{
+    background-color: rgb(2, 35, 133);
+    color:white
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.buttons .login:hover{
+    background-color: green;
+    transition:var( --main-transition);
+}
+.buttons .btn.register:hover{
+    background-color: rgb(12, 0, 50);
+    transition:var( --main-transition);
+}
