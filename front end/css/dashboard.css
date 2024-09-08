@@ -1,0 +1,123 @@
+
+.usr-img img{
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    line-height:250px ;
+    box-shadow: var(--main-shadow);
+    margin: 20px auto;
+    display: block;
+}
+
+.usr-img img{
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    line-height:250px ;
+    box-shadow: var(--main-shadow);
+    margin: 20px auto;
+    display: block;
+}
+
+
+table {
+    width: 80%;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: left; 
+    margin: 20px auto;
+    background-color: #f9f9f9; 
+    font-family: 'Arial', sans-serif;
+}
+
+
+table tr {
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+
+table th {
+    padding: 20px;
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    border-radius: 20px 20px 0 0;
+}
+
+
+table td {
+    padding: 15px 20px;
+    color: #555;
+}
+
+table tr:hover {
+    background-color: #f1f1f1; 
+}
+
+
+table td:nth-child(2) {
+    max-width: 400px; 
+    word-wrap: break-word;
+}
+
+
+table td:first-child {
+    font-weight: bold;
+    color: #007bff;
+}
+
+table td:nth-child(2) {
+    color: #444;
+}
+
+table td:last-child {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+}
+
+.make-post form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.make-post form textarea{
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    height: 200px;
+    background-color: #eee;
+    width: 250px;
+    
+}
+.make-post form textarea:focus{
+    outline: none;
+    border: 1px solid  rgb(14, 88, 172);
+}
+.make-post form button{
+    background-color: rgb(14, 88, 172);
+    color: white;
+}
+label{
+    text-transform: capitalize;
+}
+.make-post .inputs{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.inputs div{
+    width: fit-content;
+}
