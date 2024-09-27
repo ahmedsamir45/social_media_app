@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'posts/css/post.css' %}">
+<link rel="stylesheet" href="{% static 'posts/css/postEdit.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="post" data-post-id="{{ post.id }}">
+        <div class="head">
+            
+            {% if post.user.image %}
+            <img src="{{ post.user.image.url }}" alt=""> 
+        {% else %}
+            <img src="{% static 'globalproject/imgs/usr.jpg' %}" alt="Default User Image">
+        {% endif %}
+            
+            <span>
+                <a href="{% url 'usrinfo' post.user.id %}">{{ post.user.username }}</a>
+            </span>
+            <small class="post-time">{{ post.created_at|timesince }} ago</small>
+        </div>
+        <div class="post-content">
+            <p class="text">{{ post.content }}</p>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="" class="img-post">
+            {% endif %}
+        </div>
+
+        {% if user.is_authenticated %}
+        <div class="comments" id="comments-{{ post.id }}">
+            
+            <form action="" class="comment-form" data-post-id="{{ post.id }}">
+                {% csrf_token %}
+                <input type="text" placeholder="Add your comment" name="content">
+                <button class="btn add" type="submit">Add</button>
+            </form>
+            {% for comment in post.comments.all %}
+            <div class="comment">
+                <span>
+                    {% if comment.user.image %}
+                    <img src="{{comment.user.image.url}}" alt="">
+                {% else %}
+                    <img src="{% static 'globalproject/imgs/usr.jpg' %}" alt="Default User Image">
+                {% endif %}
+                  
+                    <span>
+                        <a href="{% url 'usrinfo' comment.user.id %}">{{ comment.user.username }}</a>
+                    </span>
+                </span>
+                <p>{{ comment.content }}</p>
+                <small>{{comment.created_at}}</small>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="foot">
+            <button class="btnLike" data-action="like" data-post-id="{{ post.id }}">
+                <i class="bi fa-regular fa-thumbs-up i-like"></i> {{ post.likes.count }}
+            </button>
+            <button class="btnDislike" data-action="dislike" data-post-id="{{ post.id }}">
+                <i class="bi fa-regular fa-thumbs-down i-dis"></i> {{ post.dislikes.count }}
+            </button>
+            <button class="btnComment" data-post-id="{{ post.id }}">
+                <i class="bi fa-regular fa-comment i-comm"></i> {{ post.comments.count }}
+            </button>
+        </div>
+        {% else %}
+        <div class="buttons">
+            <a class="btn login" href="{% url 'login' %}">Login</a>
+            <a class="btn register" href="{% url 'register' %}">Register</a>
+        </div>
+        {%endif%}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'posts/js/post.js' %}"></script>
+{% endblock %}

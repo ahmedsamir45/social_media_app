@@ -1,0 +1,173 @@
+:root{
+    --main-transition: all .3s;
+    --main-shadow: 12px 21px 19px 3px rgba(0, 0, 0, 0.5);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+nav{
+    padding: 5px 10px !important;
+    position:fixed !important;
+    width: 100% !important;
+    background-color: rgb(220, 239, 252) !important;
+    top: 0;
+    z-index: 5;
+}
+
+
+nav img{
+    width: 80px;
+    border-radius: 20px;
+}
+.btn{
+    min-width: 120px;
+    background-color: #eee;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+}
+.active{
+    display: block !important;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.main-heading{
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+    font-size: 2.5rem;
+    text-align: center;
+    background: linear-gradient(45deg, #ff6f61, #de4f91); /* Gradient background */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+.main-heading:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    color: rgba(255, 255, 255, 0.8); /* Change text color on hover */
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.btn.login:hover{
+    background-color: green;
+    transition:var( --main-transition);
+    color: white;
+}
+.btn.register:hover{
+    background-color: rgb(12, 0, 50);
+    transition:var( --main-transition);
+    color: white;
+
+}
+.btn.login{
+    background-color: rgb(255, 255, 255);
+    color: green;
+    text-align: center;
+    border: 1px solid green ;
+}
+.btn.register{
+    color: rgb(2, 35, 133);
+    background-color:white;
+    text-align: center;
+    border: 1px solid rgb(2, 35, 133);
+}
+.show-feeds{
+    background-color: rgb(169, 130, 0);
+    color: white;
+}
+.show-feeds:hover{
+    border: 1px solid rgb(169, 130, 0);
+    background-color: white;
+    color: rgb(169, 130, 0);
+}
+
+.container{
+    margin: 100px auto !important;
+    /* min-height: 100vh; */
+
+}
+
+.app-footer {
+    background-color: #282c34; /* Dark background color */
+    color: #ffffff; /* White text color */
+    padding: 20px 0; /* Top and bottom padding */
+    text-align: center; /* Center text */
+    font-family: 'Arial', sans-serif; /* Change to your preferred font */
+}
+
+.footer-content {
+    max-width: 1200px; /* Maximum width for content */
+    margin: 0 auto; /* Center footer content */
+    padding: 0 20px; /* Side padding */
+}
+
+.footer-links {
+    margin-bottom: 10px; /* Space below links */
+}
+
+.footer-links a {
+    color: #ffffff; /* Link color */
+    margin: 0 15px; /* Space between links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Smooth color transition */
+}
+
+.footer-links a:hover {
+    color: #ff6f61; /* Change link color on hover */
+}
+
+.footer-copy {
+    margin: 10px 0; /* Space above and below copyright text */
+    font-size: 0.9rem; /* Smaller font size for copyright */
+}
+nav a{
+    padding: 5px !important;
+}
+nav .active{
+    transition: 1s;
+    background-color: rgb(191, 253, 255);
+    border-radius: 3px !important;
+}
+
+.logout-btn {
+    background-color: #dc3545; /* Bootstrap's danger color */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Slightly darker red */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow on hover */
+    color: #fff;
+    text-decoration: none;
+}
+
+.logout-btn:focus, .logout-btn:active {
+    background-color: #bd2130; /* Even darker red for active state */
+    outline: none;
+    box-shadow: none;
+}
+
+nav li{
+    margin-right: 6px !important;
+}

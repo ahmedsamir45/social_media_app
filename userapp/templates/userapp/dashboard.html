@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block dashboardactive %}active{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'auth/css/dashboard.css' %}?{% now 'U' %}">
+<link rel="stylesheet" href="{% static 'posts/css/post.css' %}?{% now 'U' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="usr-img">
+        {% if user.image %}
+            <img src="{{ user.image.url }}" alt="User Image">
+        {% else %}
+            <img src="{% static 'globalproject/imgs/usr.jpg' %}" alt="Default Image">
+        {% endif %}
+    </div>
+
+    <div class="main-info">
+        <h2 class="main-heading">Main Info</h2>
+        <table>
+            <tr><td>First Name</td><td>{{ user.first_name }}</td></tr>
+            <tr><td>Last Name</td><td>{{ user.last_name }}</td></tr>
+            <tr><td>Username</td><td>{{ user.username }}</td></tr>
+            <tr><td>Email</td><td>{{ user.email }}</td></tr>
+            <tr><td>Birth Date</td><td>{{ user.birth_date }}</td></tr>
+            <tr><td>Registration Date</td><td>{{ user.registration_date }}</td></tr>
+            <tr>
+                <td>Bio</td>
+                <td>{{ user.bio|default:"No bio available" }}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="make-post">
+        <h2 class="main-heading">Make Post</h2>
+        <form action="{% url 'dashboard' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="inputs">
+                <textarea name="post" placeholder="Enter your post" id="post" required></textarea>
+                <div class="addimage">
+                    <label for="img">Add Image</label>
+                    <input type="file" name="img" id="img">
+                </div>
+            </div>
+            <button type="submit" class="btn">Share</button>
+        </form>
+    </div>
+
+    <div class="allposts">
+        <h2 class="main-heading">Your Posts</h2>
+        {% for post in posts %}
+        <div class="post">
+            <div class="head">
+                {% if post.user.image %}
+                    <img src="{{ post.user.image.url }}" alt="User Image">
+                {% else %}
+                <img src="{% static 'globalproject/imgs/usr.jpg' %}" alt="Default Image">
+                {% endif %}
+
+                <span><a href="#">{{ post.user.username }}</a></span>
+            </div>
+            <div class="post-content">
+                <p class="text">{{ post.content }}</p>
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Post Image" class="img-post">
+                {% endif %}
+            </div>
+        
+            <div class="foot">
+                <button class="btnLike" data-action="like" data-post-id="{{ post.id }}">
+                    <i class="bi fa-regular fa-thumbs-up i-like"></i> {{ post.likes.count }}
+                </button>
+                <button class="btnDislike" data-action="dislike" data-post-id="{{ post.id }}">
+                    <i class="bi fa-regular fa-thumbs-down i-dis"></i> {{ post.dislikes.count }}
+                </button>
+                <button class="btnComment" data-post-id="{{ post.id }}">
+                    <i class="bi fa-regular fa-comment i-comm"></i> {{ post.comments.count }}
+                </button>
+            </div>
+            <div class="comments" id="comments-{{ post.id }}">
+                
+                <form action="" class="comment-form" data-post-id="{{ post.id }}">
+                    {% csrf_token %}
+                    <input type="text" placeholder="Add your comment" name="content">
+                    <button class="btn add" type="submit">Add</button>
+                </form>
+                {% for comment in post.comments.all %}
+                <div class="comment">
+                    <span>
+                        {% if comment.user.image %}
+                        <img src="{{comment.user.image.url}}" alt="">
+                    {% else %}
+                        <img src="{% static 'globalproject/imgs/usr.jpg' %}" alt="Default User Image">
+                    {% endif %}
+                        
+                        <span>
+                            <a href="{% url 'usrinfo' comment.user.id %}">{{ comment.user.username }}</a>
+                        </span>
+                    </span>
+                    <p>{{ comment.content }}</p>
+                    <small>{{comment.created_at}}</small>
+                </div>
+                {% endfor %}
+            </div>
+        
+        
+        </div>
+        {% empty %}
+        <p>No posts available.</p>
+        {% endfor %}
+    </div>
+</div>
+<script src="{% static 'posts/js/post.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,31 @@
+.landing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 1rem;
+}
+.landingImg img{
+    width: 20rem;
+    border-radius: 20px;
+    box-Shadow: var(--main-shadow);
+}
+
+.landing p{
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-Shadow: var(--main-shadow);
+}
+
+.show-feeds{
+    background-color: rgb(169, 130, 0);
+    color: white;
+}
+.show-feeds:hover{
+    border: 1px solid rgb(169, 130, 0);
+    background-color: white;
+    color: rgb(169, 130, 0);
+}
