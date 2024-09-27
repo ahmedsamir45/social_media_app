@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block aboutactive %}active{% endblock %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'global/css/about.css' %}?v={{ current_timestamp }">
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+
+  
+            <h1 class="main-heading">About UR Social Media Platform</h1>
+   
+        <main class="content">
+            <section class="description">
+                <h2>Welcome!</h2>
+                <p>
+                    Our platform is a dynamic space designed to connect users, foster community engagement, 
+                    and share experiences through posts and interactions. 
+                    We allow users to create profiles, connect with friends, and engage with content in a meaningful way.
+                </p>
+            </section>
+            <section class="features">
+                <h2>Key Features</h2>
+                <div class="feature-item">
+                    <h3>User Registration and Login</h3>
+                    <p>
+                        Our seamless registration and login process ensures a quick and secure onboarding experience.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <h3>User Dashboard</h3>
+                    <p>
+                        Users are greeted by a user-friendly dashboard that serves as their central hub, providing easy navigation to all features.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <h3>Profile Management</h3>
+                    <p>
+                        Users can customize their profiles with pictures, bios, and personal information.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <h3>Posts and Content Sharing</h3>
+                    <p>
+                        At the heart of our platform is the ability for users to create and share posts.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <h3>Comments and Interactions</h3>
+                    <p>
+                        Users can comment on posts, enabling conversations and deeper connections.
+                    </p>
+                </div>
+                <div class="feature-item">
+                    <h3>Likes and Dislikes</h3>
+                    <p>
+                        Users can like or dislike posts, providing instant feedback and highlighting popular content.
+                    </p>
+                </div>
+            </section>
+            <section class="conclusion">
+                <h2>Join Us!</h2>
+                <p>
+                    Our platform is dedicated to enhancing user experience. We welcome feedback from our users to make our platform even better. 
+                    Join us today and be part of a thriving community!
+                </p>
+                    <div class="buttons">
+        {% if user.is_authenticated %}
+            <a class="btn show-feeds" href="{% url 'feed' %}">Show Feeds</a>
+        {% else %}
+            <a class="btn login" href="{% url 'login' %}">Login</a>
+            <a class="btn register" href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </div>
+            </section>
+        </main>
+
+    
+</div>
+{% endblock %}
+
+

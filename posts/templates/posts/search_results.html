@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+    .container{
+       min-height: 80vw;
+    }
+   </style>
+{% endblock css %}
+
+
+{% block content %}
+
+<div class="container">
+    <h2 class="main-heading">Search Results for "{{ query }}"</h2>
+
+    {% if results %}
+        <ul class="list-group">
+            {% for post in results %}
+                <li class="list-group-item">
+                    <a href="{% url 'post' post.id %}">{{ post.user.username }}'s Post - {{ post.created_at }}</a>
+                    <p>{{ post.content|truncatewords:20 }}</p> <!-- Show a short snippet of content -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts found matching your search.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -99,7 +99,9 @@
     color: rgb(94, 94, 94);
 
 }
-
+.foot button{
+    width: 150px !important;
+}
 
 .liked {
     color: blue; 

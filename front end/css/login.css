@@ -10,6 +10,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
+    margin: 30px;
+    background-color: #eee;
 }
 
 h2 {
@@ -22,6 +24,7 @@ h2 {
 .input-group {
     margin-bottom: 15px;
     text-align: left;
+
 }
 
 .input-group label {
@@ -35,6 +38,8 @@ h2 {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    border: none;
+    outline: none;
 }
 
 .btn-login {
@@ -60,4 +65,7 @@ h2 {
     text-decoration: none;
     display: block;
     margin-bottom: 5px;
+}
+.input-group input:focus{
+    border:1px solid #28a745 !important;
 }

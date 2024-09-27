@@ -11,6 +11,8 @@
     width: 300px;
     text-align: center;
     padding-bottom: 30px;
+    margin: 30px;
+    background-color: #eee;
 
 }
 
@@ -22,6 +24,10 @@ h2 {
 .input-group {
     margin-bottom: 15px;
     text-align: left;
+}
+.input-group input{
+    border: none;
+    outline: none;
 }
 
 .input-group label {
@@ -60,4 +66,18 @@ h2 {
     text-decoration: none;
     display: block;
     margin-bottom: 5px;
+}
+
+.input-group textarea{
+    display:block;
+    width: 100%;
+    padding: 10px;
+    margin: 20px auto;
+    height: 200px;
+    border-radius: 20px !important;
+    border: none;
+    outline: none;
+}
+textarea:focus,input:focus{
+    border:1px solid #0069d9 !important;
 }

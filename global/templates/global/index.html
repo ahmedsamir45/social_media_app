@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'global/css/landing.css' %}?{% now 'U' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="container">
+    <div class="landing">
+        <div class="landingImg">
+            <img src="{% static 'global/imgs/landing.jpeg' %}" alt="Landing Image">
+        </div>
+        <p>
+            Welcome to our platform. {% if user.is_authenticated %}You are logged in.{% else %}Please login or register to access your dashboard.{% endif %}
+        </p>
+    </div>
+    <div class="buttons">
+        {% if user.is_authenticated %}
+            <a class="btn show-feeds" href="{% url 'feed' %}">Show Feeds</a>
+        {% else %}
+            <a class="btn login" href="{% url 'login' %}">Login</a>
+            <a class="btn register" href="{% url 'register' %}">Register</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+.landing{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 1rem;
+}
+.landingImg img{
+    width: 20rem;
+    border-radius: 20px;
+    box-Shadow: var(--main-shadow);
+}
+
+.landing p{
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-Shadow: var(--main-shadow);
+}
+
+.container{
+    /* margin: 100px auto !important; */
+    min-height: 100vh !important;
+
+}

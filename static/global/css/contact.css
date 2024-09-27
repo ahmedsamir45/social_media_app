@@ -1,0 +1,59 @@
+/* start contact us */
+.contact form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .contact input,textarea{
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+  }
+  .contact input,textarea:focus{
+    border: none;
+    outline: #6B654B;
+  }
+  .contact input{
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+  }
+  textarea{
+    height: 200px;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background-color: #eee;
+  }
+  #submit{
+    background-color:rgb(19, 205, 19);
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    transition: var(--main-transition);
+  }
+  #submit:hover{
+    background-color:#1e1f0c;
+  }
+  .contact .links{
+    display: block;
+    width: fit-content;
+    padding: 10px;
+    margin: 10px auto;
+    background-color:#f9d63e;
+    border-radius: 20px;
+    color: black;
+  }
+  .contact .links a{
+    text-decoration: none;
+    color: rgb(0, 115, 255);
+    cursor: pointer;
+    transition: var(--main-transition);
+  }
+  /* end contact us */

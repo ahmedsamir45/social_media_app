@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block contactactive %}active{% endblock %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'global/css/contact.css' %}?{% now 'U' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="contact" id="contact">
+        <h2 class="main-heading">contact us</h2>
+        <div class="form">
+          <form onsubmit="sendEmail(); reset(); return false">
+            <input type="text" name="" id="name" placeholder="your name" required>
+            <input type="email" name="" id="email" placeholder="email id" required>
+            <textarea name="" id="message" cols="30" placeholder="leave your message"></textarea>
+            <button id="submit" type="submit">send</button>
+          </form>
+        </div>
+        <div class="links">
+          <p>you can vist this to find my all links: <a target="_blank" href="https://ahmedsamir45.github.io/ahsamir-links/">vist</a></p>
+        </div>
+      </div>
+</div>
+
+<script src="{% static 'global/js/contact.js' %}"></script>
+{% endblock %}
+
+
